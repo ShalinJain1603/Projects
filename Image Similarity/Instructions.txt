@@ -1,0 +1,95 @@
+Important Notes:
+    1) Make sure all the Libraries are preinstalled in your Laptop
+    2) Keep all the files in the same folder
+    3) Keep all the images in the a same folder you want to test and then keep that folder in the same folder wher all the other files are            kept.
+    4). Get used to jupyter Notebook a little bit. You should know the basics of operarting it.
+    
+Steps to follow:
+
+1).
+
+Goto Terminal and type jupyter notebook
+
+2).
+
+Goto the folder where all the files are kept
+
+3).
+
+There will be 4 files:
+Instruction manual, raw_code.ipynb, bullet_fire_arm.pkl and functions.py
+
+4).
+
+raw_code.ipynb contain the complete code of how the Model is made. You can edit it according to your convinience but it is better if it is left untouched.It is for understanding purpose.
+
+5).
+
+For making Predictions:
+
+Open a new ipython Notebook,
+
+Import all the folowing Libraries:
+
+from zipfile import ZipFile
+import os
+from PIL import Image
+import numpy as np
+import matplotlib.image as mpimg
+import pandas as pd
+from matplotlib import pyplot as plt
+%matplotlib inline
+
+from keras.models import Sequential
+from keras.layers import Dense, Dropout,BatchNormalization, Flatten, Conv2D, MaxPool2D,Input  # Layers to be used in CNN(Keras) Model
+from keras.optimizers import RMSprop
+
+from sklearn.model_selection import train_test_split
+from keras.utils.np_utils import to_categorical
+
+
+6).
+Write the following code in the next_line
+
+from sklearn.externals import joblib 
+model = joblib.load('bullet_firearm.pkl')  // Your model will be loaded in the Notebook
+
+7).
+Write the following code in the next_line
+
+from functions import load_images
+
+address = './name_of_the_folder_in_which_all_the_images_are_kept/.'
+
+images,names = load_images(address) // This will convert the images into a format which the model understands.
+
+8).
+Copy the following code in the next_line
+
+    predictions = model.predict(data)
+    max_value = np.argmax(predictions,axis = 1)
+    final_answer = []
+    for i in range(len(max_value)):
+        if max_value[i] == 0:
+            final_answer.append(11)
+        elif max_value[i] == 1:
+            final_answer.append(12)
+        elif max_value[i] == 2:
+            final_answer.append(21)
+        elif max_value[i] == 3:
+            final_answer.append(22)
+        elif max_value[i] == 4:
+            final_answer.append(31)
+        else:
+            final_answer.append(32)
+            
+9). All the Predictions are done from the range(0 to 5):
+
+0 : FireArm 1 bullet 1 a11
+1 : FireArm 1 bullet 2 a12
+2 : FireArm 2 bullet 1 a21
+3 : FireArm 2 bullet 2 a22
+4 : FireArm 3 bullet 1 a31
+5 : FireArm 3 bullet 2 a32
+
+10). final_answer is a list of integers from 0 to 5 

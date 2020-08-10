@@ -12,3 +12,4 @@ ItemDescription - Simple description of the product purchased
 NumberOfItemsPurchased - Quantity of the product purchased in the transaction
 CostPerItem - Price per each unit of the product
 Country - Country from which the purchase is made.
+n

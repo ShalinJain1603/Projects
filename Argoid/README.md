@@ -1,8 +1,8 @@
-Problem Statement   
+## Problem Statement   
 
-Predict the list of two other items/products which are frequently bought together whenever an item/product is added to the cart. 
+Predict the list of two other items/products which are frequently bought together whenever an item/product is added to the cart.<br>
   
-DataSet  
+## DataSet  
 
 The dataset contains transactions on an e-commerce website between the period Feb 2018 to Feb 2019 from customers across different countries.
 

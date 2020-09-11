@@ -1,0 +1,11 @@
+
+#
+# add Python library if it is not in the list
+
+# Numpy
+# Pandas
+# TensorFlow
+# Keras
+# Matplotlib
+
+
